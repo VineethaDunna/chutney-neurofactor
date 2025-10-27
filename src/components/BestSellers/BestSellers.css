@@ -1,0 +1,238 @@
+.bestsellers-container {
+	background: linear-gradient(135deg, #2eb69f 0%, #3cc5ab 100%);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.bestsellers-title {
+	font-family: "Arial", sans-serif;
+	font-size: 3em;
+	font-weight: 100;
+	letter-spacing: 2px;
+	color: #ffffff;
+	margin: 20px;
+	padding: 20px;
+}
+
+.carousel-wrapper {
+	position: relative;
+	width: 100%;
+	max-width: 1200px;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 80px;
+}
+
+.carousel-track {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.carousel-item {
+	position: absolute;
+	transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.carousel-item.left {
+	left: 10%;
+	transform: scale(0.7);
+	opacity: 0.6;
+	z-index: 1;
+}
+
+.carousel-item.active {
+	left: 50%;
+	transform: translateX(-50%) scale(1);
+	opacity: 1;
+	z-index: 3;
+}
+
+.carousel-item.right {
+	right: 10%;
+	transform: scale(0.7);
+	opacity: 0.6;
+	z-index: 1;
+}
+
+.item-background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.background-shape {
+	width: 400px;
+	height: 400px;
+	object-fit: contain;
+	filter: brightness(0.95);
+}
+
+.carousel-item.left .background-shape,
+.carousel-item.right .background-shape {
+	width: 410px;
+	height: 410px;
+}
+
+.item-image {
+	position: relative;
+	z-index: 2;
+	width: 300px;
+	height: 300px;
+	object-fit: contain;
+	transition: all 0.5s ease;
+}
+
+.carousel-item.left .item-image,
+.carousel-item.right .item-image {
+	width: 200px;
+	height: 200px;
+}
+
+.carousel-arrow {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.2);
+	border: none;
+	color: white;
+	font-size: 32px;
+	cursor: pointer;
+	z-index: 5;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	backdrop-filter: blur(10px);
+}
+
+.carousel-arrow:hover {
+	background: rgba(255, 255, 255, 0.3);
+	transform: scale(1.1);
+}
+
+.carousel-arrow-left {
+	left: 40px;
+}
+
+.carousel-arrow-right {
+	right: 40px;
+}
+
+.item-label {
+	font-family: "Arial", sans-serif;
+	font-size: 28px;
+	font-weight: 400;
+	letter-spacing: 4px;
+	color: #ffffff;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.view-menu-btn {
+	background: white;
+	color: #2eb69f;
+	border: none;
+	margin-bottom: 20px;
+	padding: 14px 36px;
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: 2px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-family: "Arial", sans-serif;
+}
+
+.view-menu-btn:hover {
+	background: #ff6b9d;
+	color: white;
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.arrow-icon {
+	font-size: 18px;
+	transition: transform 0.3s ease;
+}
+
+.view-menu-btn:hover .arrow-icon {
+	transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.bestsellers-title {
+		font-size: 32px;
+		letter-spacing: 4px;
+		margin-bottom: 40px;
+	}
+
+	.carousel-wrapper {
+		height: 350px;
+	}
+
+	.background-shape {
+		width: 300px;
+		height: 300px;
+	}
+
+	.carousel-item.left .background-shape,
+	.carousel-item.right .background-shape {
+		width: 200px;
+		height: 200px;
+	}
+
+	.item-image {
+		width: 180px;
+		height: 180px;
+	}
+
+	.carousel-item.left .item-image,
+	.carousel-item.right .item-image {
+		width: 120px;
+		height: 120px;
+	}
+
+	.carousel-arrow {
+		width: 40px;
+		height: 40px;
+		font-size: 24px;
+	}
+
+	.carousel-arrow-left {
+		left: 10px;
+	}
+
+	.carousel-arrow-right {
+		right: 10px;
+	}
+
+	.item-label {
+		font-size: 20px;
+		letter-spacing: 2px;
+	}
+
+	.view-menu-btn {
+		padding: 12px 28px;
+		font-size: 12px;
+	}
+}

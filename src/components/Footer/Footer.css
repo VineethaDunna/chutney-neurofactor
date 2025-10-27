@@ -1,0 +1,149 @@
+.footer-bg {
+	background: #1fc2b2;
+	color: #fff;
+	padding: 50px 0 0 0;
+	font-family: "Montserrat", sans-serif;
+	position: relative;
+	width: 100vw;
+	margin: 0;
+}
+
+.footer-center {
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.footer-logo-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 24px;
+}
+
+.footer-logo {
+	height: 54px;
+	width: 54px;
+	object-fit: contain;
+}
+
+.footer-brand {
+	color: #fff;
+	letter-spacing: 7px;
+	font-size: 42px;
+	font-weight: 700;
+}
+
+.footer-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	justify-content: center;
+	list-style: none;
+	margin: 0 0 26px 0;
+	padding: 0;
+}
+
+.footer-links a {
+	color: #fff;
+	font-size: 15px;
+	font-weight: 500;
+	text-decoration: none;
+	letter-spacing: 1px;
+	transition: color 0.2s;
+}
+
+.footer-links a:hover {
+	color: #ffefe2;
+}
+
+.footer-contact {
+	margin: 22px 0 14px 0;
+	color: #fff;
+	font-size: 16px;
+}
+
+.footer-contact div {
+	margin-bottom: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+}
+
+.footer-icon {
+	height: 19px;
+	width: 19px;
+	margin-bottom: 2px;
+}
+
+.footer-social {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 24px;
+	margin: 13px 0 0 0;
+}
+
+.footer-social img {
+	height: 28px;
+	width: 28px;
+	transition: filter 0.2s;
+}
+
+.footer-social a:hover img {
+	filter: invert(1) drop-shadow(0 0 7px #fff) brightness(2);
+}
+
+.footer-bottom-row {
+	width: 100vw;
+	border-top: 1px solid #c9ecea;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	letter-spacing: 1px;
+	margin-top: 52px;
+	padding: 15px 0 12px 0;
+}
+
+/* Responsive styles */
+@media (max-width: 800px) {
+	.footer-brand {
+		font-size: 26px;
+		letter-spacing: 3px;
+	}
+	.footer-logo {
+		height: 32px;
+		width: 32px;
+	}
+	.footer-links {
+		gap: 14px;
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 500px) {
+	.footer-brand {
+		font-size: 18px;
+		letter-spacing: 1px;
+	}
+	.footer-links {
+		flex-direction: column;
+		gap: 5px;
+		font-size: 11px;
+	}
+	.footer-social {
+		gap: 13px;
+	}
+	.footer-bottom-row {
+		padding: 9px 0 7px 0;
+		font-size: 10px;
+	}
+	.footer-contact {
+		font-size: 12px;
+	}
+	.footer-logo-row {
+		margin-bottom: 9px;
+	}
+}

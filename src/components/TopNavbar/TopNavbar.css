@@ -1,0 +1,64 @@
+.top-navbar {
+	background-color: #009688; /* teal bar */
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 6px 20px;
+	font-size: 0.9rem;
+
+	border-bottom: 2px solid #f9a825; /* that thin yellow border line */
+}
+
+/* Left side: address + phone */
+.contact-info {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 20px;
+	font-weight: 500;
+}
+.contact-info span img {
+	width: 16px;
+	height: 16px;
+	margin-right: 6px;
+	vertical-align: middle;
+}
+
+/* Right side: social icons */
+.social-icons {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.social-icons img {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.social-icons img:hover {
+	transform: scale(1.15);
+	filter: brightness(1.2);
+}
+
+/* 🔹 Mobile view */
+@media (max-width: 768px) {
+	.top-navbar {
+		flex-direction: column;
+		text-align: center;
+		padding: 10px;
+	}
+
+	.contact-info {
+		justify-content: center;
+		gap: 10px;
+	}
+
+	.social-icons {
+		margin-top: 6px;
+		gap: 16px;
+	}
+}

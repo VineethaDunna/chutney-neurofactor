@@ -1,0 +1,92 @@
+.gallery-carousel-bg {
+	background: #fffcec;
+	padding: 40px 0 30px 0;
+	width: 100vw;
+	overflow: hidden;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.gallery-title {
+	color: #ff1890;
+	font-family: "Montserrat", sans-serif;
+	font-size: 34px;
+	font-weight: 600;
+	letter-spacing: 1.3px;
+	margin: 20px;
+}
+
+.gallery-carousel-outer {
+	width: 100vw;
+	overflow-x: hidden;
+	margin: 10px;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.gallery-carousel-inner {
+	display: flex;
+	flex-direction: row;
+	width: max-content;
+	gap: 20px;
+	overflow-x: scroll;
+	scroll-behavior: auto;
+	/* Hide scrollbar visual for Chrome, Safari and Opera */
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.gallery-carousel-inner::-webkit-scrollbar {
+	display: none;
+}
+
+/* Image card styles */
+.gallery-image-container {
+	flex: 0 0 auto;
+	width: 400px;
+	height: 500px;
+	border-radius: 14px;
+	overflow: hidden;
+	background: #faf6e9;
+	box-shadow: 0 2px 18px rgba(140, 76, 92, 0.07);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.gallery-image-container img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 14px;
+	transition: transform 0.2s;
+}
+.gallery-image-container img:hover {
+	transform: scale(1.04);
+}
+
+@media (max-width: 900px) {
+	.gallery-image-container {
+		width: 34vw;
+		height: 24vw;
+		max-width: 260px;
+		max-height: 200px;
+	}
+	.gallery-title {
+		font-size: 27px;
+		margin-left: 2vw;
+		margin-bottom: 17px;
+	}
+}
+@media (max-width: 600px) {
+	.gallery-image-container {
+		width: 72vw;
+		height: 37vw;
+		min-width: 180px;
+		min-height: 120px;
+	}
+	.gallery-title {
+		font-size: 17px;
+		margin-bottom: 7px;
+	}
+}

@@ -1,0 +1,72 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	background: #560130 !important;
+	z-index: 20;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	padding: 20px 40px;
+	justify-content: space-between;
+	font-family: "Montserrat", sans-serif;
+	box-shadow: 0 2px 18px rgba(140, 76, 92, 0.07); /* Optional: subtle shadow for elevation */
+}
+
+.navbar-logo {
+	display: flex;
+	align-items: center;
+}
+
+.logo-c {
+	height: 50px;
+	width: auto;
+	margin-right: 10px;
+}
+
+.logo-text {
+	height: 48px;
+	width: auto;
+}
+
+.navbar-links {
+	display: flex;
+	gap: 60px;
+}
+
+.navbar-links a {
+	text-decoration: none;
+	color: #7b325b;
+	font-size: 22px;
+	letter-spacing: 2px;
+	font-weight: 600;
+	transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+	color: #0aafad;
+}
+
+.navbar-reservation {
+	background: #ff1890;
+	color: #fffcec;
+	font-size: 24px;
+	padding: 18px 35px;
+	border-radius: 2px;
+	font-weight: 600;
+	text-decoration: none;
+	margin-left: 30px;
+	display: flex;
+	align-items: center;
+	transition: background 0.2s;
+}
+
+.navbar-reservation:hover {
+	background: #cc1674;
+}
+
+.arrow {
+	margin-left: 15px;
+	font-size: 27px;
+	font-weight: bold;
+}

@@ -1,51 +1,46 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import "./Gallery.css";
 
 const images = [
-	require("../../assets/1.png"),
-	require("../../assets/2.png"),
-	require("../../assets/3.png"),
-	require("../../assets/4.png"),
+    require("../../assets/1.png"),
+    require("../../assets/2.png"),
+    require("../../assets/3.png"),
+    require("../../assets/4.png"),
 ];
 
 export default function Gallery() {
-	const scrollRef = useRef(null);
+    const [currentIdx, setCurrentIdx] = useState(0);
 
-	// Infinite scroll effect
-	useEffect(() => {
-		const scroller = scrollRef.current;
-		let animationFrame;
-		let start = Date.now();
+    // Move to next/previous image, wrap around if needed
+    const prev = () => setCurrentIdx((i) => (i === 0 ? images.length - 1 : i - 1));
+    const next = () => setCurrentIdx((i) => (i === images.length - 1 ? 0 : i + 1));
 
-		function scrollStep() {
-			if (!scroller) return;
-			// Scroll left by 1px per frame for smoothness
-			scroller.scrollLeft += 1;
-			// Loop back if at end
-			if (scroller.scrollLeft >= scroller.scrollWidth / 2) {
-				scroller.scrollLeft = 0;
-			}
-			animationFrame = requestAnimationFrame(scrollStep);
-		}
-		animationFrame = requestAnimationFrame(scrollStep);
-		return () => cancelAnimationFrame(animationFrame);
-	}, []);
-
-	// Duplicate images for seamless infinite scroll
-	const allImages = [...images, ...images];
-
-	return (
-		<section className='gallery-carousel-bg'>
-			<div className='gallery-title'>OUR GALLERY</div>
-			<div className='gallery-carousel-outer'>
-				<div className='gallery-carousel-inner' ref={scrollRef}>
-					{allImages.map((img, idx) => (
-						<div className='gallery-image-container' key={idx}>
-							<img src={img} alt={`Gallery ${(idx % images.length) + 1}`} />
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
-	);
+    return (
+        <section className="gallery-carousel-bg">
+            <div className="gallery-title">OUR GALLERY</div>
+            <div className="gallery-carousel-wrapper">
+                <button
+                    className="gallery-arrow left"
+                    onClick={prev}
+                    aria-label="Previous"
+                >
+                    &lt;
+                </button>
+                <div className="gallery-image-slide">
+                    <img
+                        src={images[currentIdx]}
+                        alt={`Gallery ${currentIdx + 1}`}
+                        className="carousel-img"
+                    />
+                </div>
+                <button
+                    className="gallery-arrow right"
+                    onClick={next}
+                    aria-label="Next"
+                >
+                    &gt;
+                </button>
+            </div>
+        </section>
+    );
 }

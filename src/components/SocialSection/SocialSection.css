@@ -32,11 +32,17 @@
 	height: 290px;
 	background: none;
 	overflow: hidden;
-	border-radius: 33% 34% 33% 34%/36% 34% 34% 35%; /* clover/morph shape */
+	border-radius: 33% 34% 33% 34%/36% 34% 34% 35%;
 	box-shadow: 0 8px 36px rgba(100, 44, 80, 0.08);
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: box-shadow 0.22s cubic-bezier(0.61, 1.61, 0.72, 1.26);
+	cursor: pointer;
+}
+.social-circle:hover,
+.social-circle:focus {
+	box-shadow: 0 12px 42px #ff189055, 0 1px 24px #ff189030;
 }
 
 .social-circle img {
@@ -45,7 +51,13 @@
 	object-fit: cover;
 	display: block;
 	border-radius: 33% 34% 33% 34%/36% 34% 34% 35%;
-	transition: filter 0.17s;
+	transition: transform 0.36s cubic-bezier(0.2, 2, 0.44, 0.87), filter 0.19s;
+}
+
+.social-circle:hover img,
+.social-circle:focus img {
+	transform: scale(1.14) rotate(-2deg);
+	filter: brightness(1.08) saturate(1.18);
 }
 
 .social-label {
@@ -67,6 +79,7 @@
 	user-select: none;
 }
 
+/* Responsive breakpoints as before */
 @media (max-width: 1050px) {
 	.social-row {
 		gap: 19px;

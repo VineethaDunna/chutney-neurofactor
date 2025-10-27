@@ -5,9 +5,9 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 6px 20px;
-	font-size: 0.9rem;
-
-	border-bottom: 2px solid #f9a825; /* that thin yellow border line */
+	font-size: 0.95rem;
+	z-index: 100;
+	border-bottom: 2px solid #f9a825;
 }
 
 /* Left side: address + phone */
@@ -29,7 +29,7 @@
 .social-icons {
 	display: flex;
 	align-items: center;
-	gap: 14px;
+	gap: 18px;
 }
 
 .social-icons img {
@@ -44,21 +44,60 @@
 	filter: brightness(1.2);
 }
 
-/* 🔹 Mobile view */
+/* Tablets (≤900px) */
+@media (max-width: 900px) {
+	.top-navbar {
+		font-size: 0.9rem;
+		padding: 10px 12px;
+	}
+	.contact-info {
+		gap: 12px;
+	}
+	.social-icons {
+		gap: 13px;
+	}
+}
+
+/* Mobile/Tablets (≤768px) */
 @media (max-width: 768px) {
 	.top-navbar {
 		flex-direction: column;
+		gap: 4px;
 		text-align: center;
-		padding: 10px;
+		padding: 12px 3vw;
+		font-size: 0.87rem;
 	}
 
 	.contact-info {
 		justify-content: center;
-		gap: 10px;
+		gap: 6px;
+		font-size: 0.95em;
+		width: 100%;
 	}
 
 	.social-icons {
-		margin-top: 6px;
+		margin-top: 7px;
 		gap: 16px;
+	}
+}
+
+/* Small Mobiles (≤480px) */
+@media (max-width: 480px) {
+	.top-navbar {
+		font-size: 0.78rem;
+		padding: 8px 2vw;
+		gap: 2px;
+	}
+	.contact-info span img {
+		width: 13px;
+		height: 13px;
+	}
+	.social-icons img {
+		width: 15px;
+		height: 15px;
+	}
+	.contact-info {
+		flex-direction: column;
+		gap: 2px;
 	}
 }

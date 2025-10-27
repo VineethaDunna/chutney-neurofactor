@@ -1,72 +1,300 @@
+/* Base navbar container */
 .navbar {
-	display: flex;
-	align-items: center;
-	background: #560130 !important;
-	z-index: 20;
 	position: fixed;
-	top: 0;
+	top: 30px;
 	left: 0;
-	width: 100vw;
-	padding: 20px 40px;
-	justify-content: space-between;
-	font-family: "Montserrat", sans-serif;
-	box-shadow: 0 2px 18px rgba(140, 76, 92, 0.07); /* Optional: subtle shadow for elevation */
+	width: 100%;
+	background: #420032;
+	color: #ff1890;
+	backdrop-filter: blur(8px);
+	z-index: 300;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Internal layout wrapper for spacing */
+.navbar-container {
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 15px 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* Logo styles */
 .navbar-logo {
 	display: flex;
 	align-items: center;
+	gap: 12px;
 }
 
 .logo-c {
 	height: 50px;
 	width: auto;
-	margin-right: 10px;
 }
 
 .logo-text {
-	height: 48px;
+	height: 46px;
 	width: auto;
 }
 
+/* Links section */
 .navbar-links {
 	display: flex;
-	gap: 60px;
+	align-items: center;
+	gap: 40px;
 }
 
 .navbar-links a {
 	text-decoration: none;
-	color: #7b325b;
-	font-size: 22px;
-	letter-spacing: 2px;
-	font-weight: 600;
-	transition: color 0.2s;
+	color: #fff7f9;
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	position: relative;
+	transition: all 0.3s ease;
+}
+
+.navbar-links a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	width: 0%;
+	height: 2px;
+	background: #ff1890;
+	transition: width 0.3s ease;
 }
 
 .navbar-links a:hover {
-	color: #0aafad;
+	color: #ff1890;
+}
+.navbar-links a:hover::after {
+	width: 100%;
 }
 
+/* Reservation button */
 .navbar-reservation {
 	background: #ff1890;
 	color: #fffcec;
-	font-size: 24px;
-	padding: 18px 35px;
-	border-radius: 2px;
+	font-size: 18px;
+	padding: 12px 28px;
+	border-radius: 4px;
 	font-weight: 600;
 	text-decoration: none;
-	margin-left: 30px;
 	display: flex;
 	align-items: center;
-	transition: background 0.2s;
+	gap: 8px;
+	transition: background 0.3s ease;
 }
 
 .navbar-reservation:hover {
-	background: #cc1674;
+	background: #00c087;
+}
+arrow {
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 1;
 }
 
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+	.navbar-links {
+		gap: 25px;
+	}
+	.navbar-reservation {
+		padding: 10px 20px;
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 768px) {
+	.navbar-container {
+		flex-direction: column;
+		gap: 15px;
+		padding: 20px;
+	}
+
+	.navbar-links {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 15px;
+	}
+}
+/* Hamburger (hidden on desktop) */
+.navbar-hamburger {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0 0 0 14px;
+	height: 44px;
+	margin-right: 12px;
+	z-index: 1001;
+}
+
+.bar {
+	width: 26px;
+	height: 3px;
+	margin: 3px 0;
+	background: #fff7f9;
+	border-radius: 2px;
+	transition: 0.3s;
+	display: block;
+}
+
+@media (max-width: 768px) {
+	/* Navbar structure for mobile */
+	.navbar {
+		top: 0;
+		padding: 0;
+		box-shadow: 0 2px 16px rgba(0, 0, 0, 0.16);
+	}
+	.navbar-container {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 11px 9px 11px 4px;
+		gap: 0;
+		height: 59px;
+		min-height: 59px;
+	}
+	.navbar-logo {
+		gap: 4px;
+	}
+	.logo-c {
+		height: 37px;
+	}
+	.logo-text {
+		height: 28px;
+	}
+
+	/* Hide links, keep hamburger and reservation only */
+	.navbar-links {
+		display: none;
+	}
+	.navbar-hamburger {
+		display: flex;
+	}
+
+	.navbar-reservation {
+		font-size: 1rem;
+		padding: 9px 18px;
+		margin-right: 5px;
+		border-radius: 4px;
+	}
+
+	/* Mobile Nav Drawer - sliding drawer from left */
+	.mobile-nav-drawer {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 220px;
+		background: #420032;
+		box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+		z-index: 999;
+		transform: translateX(-100%);
+		transition: transform 0.24s cubic-bezier(0.7, 0.3, 0.3, 1);
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		padding-top: 70px;
+		padding-bottom: 40px;
+	}
+	.mobile-nav-drawer.open {
+		transform: translateX(0);
+	}
+	.mobile-nav-drawer a {
+		color: #fff7f9;
+		font-size: 1.14rem;
+		font-weight: 500;
+		padding: 17px 32px 13px 27px;
+		border-bottom: 1px solid #5f274a;
+		text-decoration: none;
+		letter-spacing: 1px;
+		transition: background 0.18s;
+	}
+	.mobile-nav-drawer a:hover {
+		background: #ff1890;
+		color: #fffcec;
+	}
+}
+
+/* Make sure mobile nav is hidden on desktop */
+@media (min-width: 769px) {
+	.mobile-nav-drawer {
+		display: none !important;
+	}
+}
+
+/* Reservation button fine-tuning */
+.navbar-reservation {
+	background: #ff1890;
+	color: #fffcec;
+	font-size: 18px;
+	padding: 12px 28px;
+	border-radius: 4px;
+	font-weight: 600;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	transition: background 0.3s ease;
+}
+.navbar-reservation:hover {
+	background: #00c087;
+}
 .arrow {
-	margin-left: 15px;
-	font-size: 27px;
+	font-size: 22px;
 	font-weight: bold;
+	line-height: 1;
+}
+
+/* Hide scrollbar on drawer for mobile aesthetics */
+.mobile-nav-drawer {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	overflow-y: auto;
+}
+.mobile-nav-drawer::-webkit-scrollbar {
+	display: none;
+}
+/* Desktop-only and mobile-only helpers */
+.desktop-only {
+	display: flex;
+}
+.mobile-only {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.desktop-only {
+		display: none !important;
+	}
+	.mobile-only {
+		display: flex !important;
+		margin-top: 26px;
+		justify-content: flex-start;
+		align-items: center;
+		font-size: 1.15rem;
+		padding: 15px 32px;
+		background: #ff1890;
+		color: #fffcec;
+		border-radius: 3px;
+		font-weight: 600;
+		transition: background 0.3s;
+		text-decoration: none;
+		gap: 8px;
+	}
+	.mobile-only:hover {
+		background: #00c087;
+		color: #fffbe9;
+	}
+	.mobile-nav-drawer .arrow {
+		font-size: 1.17rem;
+	}
 }
